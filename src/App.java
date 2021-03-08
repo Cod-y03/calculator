@@ -19,6 +19,7 @@ public class App extends JFrame implements ActionListener{
 
     public App() {
         JPanel panel = new JPanel();
+        int digit = 0;
         
         var cpane = getContentPane();
         var gl = new GroupLayout(cpane);
@@ -43,7 +44,8 @@ public class App extends JFrame implements ActionListener{
         one.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("1");
+                digit += 1;
+                dispaly.setText(toString(calculator(1, digit)));
             }
         });
         
@@ -51,7 +53,8 @@ public class App extends JFrame implements ActionListener{
         two.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("2");
+                digit += 1;
+                dispaly.setText(toString(calculator(2, digit)));
             }
         });
         
@@ -59,7 +62,8 @@ public class App extends JFrame implements ActionListener{
         three.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("3");
+                digit += 1;
+                dispaly.setText(toString(calculator(3, digit)));
             }
         });
         
@@ -67,7 +71,8 @@ public class App extends JFrame implements ActionListener{
         four.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("4");
+                digit += 1;
+                dispaly.setText(toString(calculator(4, digit)));
             }
         });
         
@@ -75,7 +80,8 @@ public class App extends JFrame implements ActionListener{
         five.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("5");
+                digit += 1;
+                dispaly.setText(toString(calculator(5, digit)));
             }
         });
         
@@ -83,7 +89,8 @@ public class App extends JFrame implements ActionListener{
         six.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("6");
+                digit += 1;
+                dispaly.setText(toString(calculator(6, digit)));
             }
         });
         
@@ -91,7 +98,8 @@ public class App extends JFrame implements ActionListener{
         seven.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("7");
+                digit += 1;
+                dispaly.setText(toString(calculator(7, digit)));
             }
         });
         
@@ -99,7 +107,8 @@ public class App extends JFrame implements ActionListener{
         eight.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("8");
+                digit += 1;
+                dispaly.setText(toString(calculator(8, digit)));
             }
         });
         
@@ -107,7 +116,8 @@ public class App extends JFrame implements ActionListener{
         nine.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("9");
+                digit += 1;
+                dispaly.setText(toString(calculator(9, digit)));
             }
         });
         
@@ -115,7 +125,8 @@ public class App extends JFrame implements ActionListener{
         zero.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispaly.setText("0");
+                digit += 1;
+                dispaly.setText(toString(calculator(0, digit)));
             }
         });
         
@@ -124,17 +135,22 @@ public class App extends JFrame implements ActionListener{
             .addComponent(one)
             .addComponent(two))
         );
-        // gl.setVerticalGroup(gl.createSequentialGroup()
-        //         .addPreferredGap(ComponentPlacement.RELATED,
-        //                 GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        //         .addGroup(gl.createParallelGroup()
-        //                 .addComponent(one)
-        //                 .addComponent(two))
-        // );
+        gl.setVerticalGroup(gl.createSequentialGroup()
+                .addPreferredGap(ComponentPlacement.RELATED,
+                        GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(gl.createParallelGroup()
+                        .addComponent(one)
+                        .addComponent(two))
+        );
 
-        // gl.linkSize(SwingConstants.HORIZONTAL, one, two);
+        gl.linkSize(SwingConstants.HORIZONTAL, one, two);
 
-        // pack();
+        pack();
+    }
+
+    private double calculator(int num, int digit) {
+        int ten = 10;
+        return num * (Math.pow(10, (digit - 1)));
     }
 }
 
